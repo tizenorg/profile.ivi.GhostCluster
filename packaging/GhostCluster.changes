@@ -1,0 +1,22 @@
+* Mon Sep 10 2012 tripzero <kevron_m_rees@linux.intel.com> submit/upstream/20120910.223813@4f23a44
+- blah
+- updated version number
+- requires automotive-message-broker
+- added packaging
+- example spec file
+- Merge branch 'master' of github.com:otcshare/GhostCluster
+- Merge branch 'master' of github.com:otcshare/GhostCluster
+- supports throttle and engine coolant
+- moved to subscription based instead of poll/get requests
+- updated api.js
+- added wheel and gear UI
+- Merge branch 'master' of github.com:otcshare/GhostCluster
+- made work with new amb api2
+- made work with new amb api
+- cleaned up src
+- fixed makefile
+- edited makefile
+- fixed it so everything installs correctly
+- Adding manifest and desktop with appid set
+- initial add
+
