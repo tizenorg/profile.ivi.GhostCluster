@@ -7,7 +7,7 @@
 
 Name:       GhostCluster
 Summary:    Automotive Meter Cluster Application
-Version:    0.2012.2.3
+Version:    0.2012.9.10
 Release:    1
 Group:      Applications/System
 License:    Apache 2.0
