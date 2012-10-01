@@ -1,3 +1,15 @@
+* Wed Sep 26 2012 tripzero <kevron_m_rees@linux.intel.com> submit/upstream/20120910.223813@b53adbc
+- use 127.0.0.1 instead of localhost
+- vertically flipped image
+- machine gun popup
+- added machine gun turret popup
+- save address for future use
+- added jquery mobile popup to configure address
+- changelog update
+- updated version number
+- requires automotive-message-broker
+- added packaging
+
 * Mon Sep 10 2012 tripzero <kevron_m_rees@linux.intel.com> submit/upstream/20120910.223813@4f23a44
 - blah
 - updated version number
