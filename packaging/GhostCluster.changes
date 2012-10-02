@@ -1,3 +1,20 @@
+* Tue Oct 02 2012 tripzero <kevron_m_rees@linux.intel.com> submit/upstream/20120910.223813@32f40a9
+- removed .directory
+- fixed merge issues
+- changes
+- more changes
+- removed tweening from needles
+- use 127.0.0.1 instead of localhost
+- vertically flipped image
+- machine gun popup
+- added machine gun turret popup
+- save address for future use
+- added jquery mobile popup to configure address
+- changelog update
+- updated version number
+- requires automotive-message-broker
+- added packaging
+
 * Mon Oct 01 2012 tripzero <kevron_m_rees@linux.intel.com> submit/release/20120926.224334@2f3d3fc
 - Merge branch 'upstream' into release
 - more changes
