@@ -1,0 +1,10 @@
+Change-Id: I18c8b426a0edc8824072ffed80752463d6495b00
+Code-Review+2: Tracy Graydon <tracy.graydon@intel.com>
+Verified+1: Tracy Graydon <tracy.graydon@intel.com>
+Code-Review+2: Kevron Rees <kevron.m.rees@intel.com>
+Verified+1: Kevron Rees <kevron.m.rees@intel.com>
+Submitted-by: Kevron Rees <kevron.m.rees@intel.com>
+Submitted-at: Tue, 02 Oct 2012 07:48:00 +0900
+Reviewed-on: http://review.tizen.org/gerrit/1916
+Project: profile/ivi/GhostCluster
+Branch: refs/heads/master
