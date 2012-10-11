@@ -1,3 +1,6 @@
+* Thu Oct 11 2012 tripzero <kevron_m_rees@linux.intel.com> submit/upstream/20120910.223813@c3a8a61
+- added packaging dir
+
  Thu Oct 11 2012 tripzero <kevron_m_rees@linux.intel.com> submit/release/20121002.181343@da2a33a
 - fixed merge
 - install all css files
