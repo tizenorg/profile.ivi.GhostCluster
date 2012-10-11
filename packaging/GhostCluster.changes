@@ -1,3 +1,20 @@
+ Thu Oct 11 2012 tripzero <kevron_m_rees@linux.intel.com> submit/release/20121002.181343@da2a33a
+- fixed merge
+- install all css files
+- changes
+- changes
+- more changes
+- removed tweening from needles
+- removed tweening from needles
+- removed unnecessary dir
+- fixed up a bunch of things
+- use 127.0.0.1 instead of localhost
+- vertically flipped image
+- machine gun popup
+- added machine gun turret popup
+- save address for future use
+- added jquery mobile popup to configure address
+
 * Tue Oct 02 2012 tripzero <kevron_m_rees@linux.intel.com> submit/upstream/20120910.223813@32f40a9
 - removed .directory
 - fixed merge issues
