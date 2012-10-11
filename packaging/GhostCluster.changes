@@ -1,0 +1,79 @@
+ Thu Oct 11 2012 tripzero <kevron_m_rees@linux.intel.com> submit/release/20121002.181343@da2a33a
+- fixed merge
+- install all css files
+- changes
+- changes
+- more changes
+- removed tweening from needles
+- removed tweening from needles
+- removed unnecessary dir
+- fixed up a bunch of things
+- use 127.0.0.1 instead of localhost
+- vertically flipped image
+- machine gun popup
+- added machine gun turret popup
+- save address for future use
+- added jquery mobile popup to configure address
+
+* Tue Oct 02 2012 tripzero <kevron_m_rees@linux.intel.com> submit/upstream/20120910.223813@32f40a9
+- removed .directory
+- fixed merge issues
+- changes
+- more changes
+- removed tweening from needles
+- use 127.0.0.1 instead of localhost
+- vertically flipped image
+- machine gun popup
+- added machine gun turret popup
+- save address for future use
+- added jquery mobile popup to configure address
+- changelog update
+- updated version number
+- requires automotive-message-broker
+- added packaging
+
+* Mon Oct 01 2012 tripzero <kevron_m_rees@linux.intel.com> submit/release/20120926.224334@2f3d3fc
+- Merge branch 'upstream' into release
+- more changes
+- removed tweening from needles
+- removed unnecessary dir
+- fixed up a bunch of things
+- changelog update
+- updated version number
+- requires automotive-message-broker
+- added packaging
+
+* Wed Sep 26 2012 tripzero <kevron_m_rees@linux.intel.com> submit/upstream/20120910.223813@b53adbc
+- use 127.0.0.1 instead of localhost
+- vertically flipped image
+- machine gun popup
+- added machine gun turret popup
+- save address for future use
+- added jquery mobile popup to configure address
+- changelog update
+- updated version number
+- requires automotive-message-broker
+- added packaging
+
+* Mon Sep 10 2012 tripzero <kevron_m_rees@linux.intel.com> submit/upstream/20120910.223813@4f23a44
+- blah
+- updated version number
+- requires automotive-message-broker
+- added packaging
+- example spec file
+- Merge branch 'master' of github.com:otcshare/GhostCluster
+- Merge branch 'master' of github.com:otcshare/GhostCluster
+- supports throttle and engine coolant
+- moved to subscription based instead of poll/get requests
+- updated api.js
+- added wheel and gear UI
+- Merge branch 'master' of github.com:otcshare/GhostCluster
+- made work with new amb api2
+- made work with new amb api
+- cleaned up src
+- fixed makefile
+- edited makefile
+- fixed it so everything installs correctly
+- Adding manifest and desktop with appid set
+- initial add
+
