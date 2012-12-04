@@ -6,6 +6,8 @@ ICON_DIR    = ${DESTDIR}/usr/share/pixmaps
 VERSION     = $(shell grep version manifest.json | cut -f4 -d"\"")
 PACKAGE     = $(PROJECT)-$(VERSION)
 
+FILES = index.html *.js *.css manifest.json *.png
+
 PKG_NAME := $(PROJECT)
 SPECFILE = $(addsuffix .spec, $(PKG_NAME))
 YAMLFILE = $(addsuffix .yaml, $(PKG_NAME))
@@ -13,10 +15,13 @@ YAMLFILE = $(addsuffix .yaml, $(PKG_NAME))
 all:
 	@echo "Nothing to build"
 
+widget:
+	zip -r $(PKG_NAME).wgt $(FILES) assets
+
 install:
 	mkdir -p $(INSTALL_DIR)/
 	cp -a assets $(INSTALL_DIR)/
-	cp index.html *.js *.css manifest.json $(PROJECT).png $(INSTALL_DIR)/
+	cp $(FILES) $(INSTALL_DIR)/
 	mkdir -p $(DESKTOP_DIR)/
 	cp $(PROJECT).desktop $(DESKTOP_DIR)/
 	mkdir -p $(ICON_DIR)/
