@@ -14,6 +14,7 @@ var vehicle;
 
 var mpgReadings = 0;
 var prevMpg = 0;
+var curVss;
 
 function calcAverageMpg(newMpg) {
 	prevMpg += parseInt(newMpg);
@@ -37,37 +38,42 @@ function calcAverageVelocity(newVel) {
 
 function connected()
 {
-    vehicle.subscribe(["running_status_speedometer", "running_status_engine_speed", "running_status_transmission_gear_status", "running_status_steering_wheel_angle"]);
+    /*vehicle.subscribe(["running_status_speedometer", "running_status_engine_speed", "running_status_transmission_gear_status", "running_status_steering_wheel_angle"]);
     //vehicle.subscribe(["running_status_engine_speed"]);
     //vehicle.subscribe(["running_status_transmission_gear_status"]);
     //vehicle.subscribe(["running_status_steering_wheel_angle"]);
     vehicle.subscribe(["ThrottlePosition"]);
     vehicle.subscribe(["EngineCoolantTemperature"]);
     vehicle.subscribe(["MachineGunTurretStatus"]);
+    vehicle.subscribe(["AirIntakeTemperature"]);*/
 
-    document.addEventListener("running_status_speedometer",function(data) {
+    vehicle.subscribe(["VehicleSpeed","EngineSpeed","MassAirFlow","AirIntakeTemperature","ThrottlePosition","EngineCoolantTemperature", "TransmissionShiftPosition",
+                       "SteeringWheelAngle","MachineGunTurretStatus"]);
 
-                                  adjvalue = data.value;
+    document.addEventListener("VehicleSpeed",function(data) {
+
+                                  adjvalue = data.value.value;
+                                  curVss = adjvalue;
                                   var velocityUnits = $('#velocityUnits');
 
                                   if(velocityUnits.text() === "MPH")
-                                      adjvalue = Math.floor(data.value * 0.62137);
+                                      adjvalue = Math.floor(adjvalue * 0.62137);
 
                                   $('#velocity').text(adjvalue);
 
                                   calcAverageVelocity(adjvalue);
                               },false);
 
-    document.addEventListener("running_status_engine_speed", function(data) {
-                                  var value = data.value;
+    document.addEventListener("EngineSpeed", function(data) {
+                                  var value = data.value.value;
                                   if(value > 10000) value =10000;
                                   var needleDegs = value / 10000 * 180;
                                   $('#rpms').text(value);
                                   $('#rpmNeedle').css("-webkit-transform","rotate("+needleDegs+"deg)");
                               },false);
 
-    document.addEventListener("running_status_transmission_gear_status",function(data) {
-                                  value = data.value;
+    document.addEventListener("TransmissionShiftPosition",function(data) {
+                                  value = data.value.value;
 								  if(value == 128)
 									  $('#gear').text('Reverse');
 								  else if(value == 0)
@@ -76,14 +82,14 @@ function connected()
 								  
                               },false);
 
-    document.addEventListener("running_status_steering_wheel_angle", function(data) {
-                                  value = data.value;
+    document.addEventListener("SteeringWheelAngle", function(data) {
+                                  value = data.value.value;
                                   $('#wheel').css("-webkit-transform","rotate("+value+"deg)");
                                   $('#machinegun').css("-webkit-transform","rotate("+value+"deg)");
                               },false);
 
     document.addEventListener("ThrottlePosition", function(data) {
-                                  value = data.value;
+                                  value = data.value.value;
                                   var needleDegs = (value / 100 * 180) + 270
 
                                   $('#throttleNeedle').css("-webkit-transform","rotate("+needleDegs+"deg)");
@@ -91,7 +97,7 @@ function connected()
                               },false);
 
     document.addEventListener("EngineCoolantTemperature", function(data) {
-                                  value = data.value;
+                                  value = data.value.value;
                                   var needleDegs = (value / 180 * 70) + 270
 
                                   $('#engineCoolantNeedle').css("-webkit-transform","rotate("+needleDegs+"deg)");
@@ -99,10 +105,22 @@ function connected()
                               },false);
 
     document.addEventListener("MachineGunTurretStatus", function(data) {
-                                  value = data.value;
+                                  value = data.value.value;
                                   if(value === "1")
                                       $('#machineGunTurretPopup').popup('open');
                                   else $('#machineGunTurretPopup').popup('close');
+
+                              },false);
+
+    document.addEventListener("MassAirFlow", function(data) {
+                                  value = data.value.value;
+                                  var maf = value;
+                                  var vss = curVss;
+                                  var mpg = Math.floor((14.7 * 6.17 * 4.54 * vss * 0.621371) / (3600 * maf / 100));
+
+                                  $('#mpg').text(mpg);
+
+                                  calcAverageMpg(mpg);
 
                               },false);
 
