@@ -1,3 +1,15 @@
+* Mon Jan 28 2013 tripzero <kevron_m_rees@linux.intel.com> submit/2.0alpha/20121204.190115@e30549d
+- Merge branch 'upstream' into 2.0alpha
+- Merge branch 'master' of github.com:otcshare/GhostCluster into upstream
+- fixed commented out properties
+- updated for new AMB 0.7 protocol
+- Merge branch 'master' of github.com:otcshare/GhostCluster into upstream
+- updated makefile with 'widget' rule
+- updated makefile with 'widget' rule
+- updated changlelog
+- Adds usage of strict comparison operators when comparing to undefined.
+- changed property names in business
+
 * Tue Dec 04 2012 tripzero <kevron_m_rees@linux.intel.com> 1.0_branch@ab56f88
 - updated changelog for 2.0alpha release
 
