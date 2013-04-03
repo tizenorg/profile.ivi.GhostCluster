@@ -14,7 +14,7 @@ License:    Apache 2.0
 URL:        http://www.tizen.org
 Source0:    %{name}-%{version}.tar.gz
 Requires:   automotive-message-broker-plugins-websocket
-
+BuildRequires: zip
 
 %description
 Example guage cluster for tizen ivi
