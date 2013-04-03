@@ -6,7 +6,7 @@ ICON_DIR    = ${DESTDIR}/usr/share/pixmaps
 VERSION     = $(shell grep version manifest.json | cut -f4 -d"\"")
 PACKAGE     = $(PROJECT)-$(VERSION)
 
-FILES = index.html *.js *.css manifest.json *.png
+FILES = index.html *.js *.css manifest.json *.png *.xml
 
 PKG_NAME := $(PROJECT)
 SPECFILE = $(addsuffix .spec, $(PKG_NAME))
