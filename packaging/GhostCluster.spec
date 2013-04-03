@@ -13,15 +13,11 @@ Group:      Applications/System
 License:    Apache 2.0
 URL:        http://www.tizen.org
 Source0:    %{name}-%{version}.tar.gz
-BuildRequires:  desktop-file-utils
-Requires: automotive-message-broker-plugins
+Requires:   automotive-message-broker-plugins-websocket
 
 
 %description
 Example guage cluster for tizen ivi
-
-
-
 
 %prep
 %setup -q -n %{name}-%{version}
@@ -34,7 +30,8 @@ Example guage cluster for tizen ivi
 # << build pre
 
 
-make %{?jobs:-j%jobs}
+make widget
+
 
 # >> build post
 # << build post
@@ -42,13 +39,13 @@ make %{?jobs:-j%jobs}
 rm -rf %{buildroot}
 # >> install pre
 # << install pre
-%make_install
+# %make_install
+
+make install_widget
+wrt-installer -i %{_datadir}/GhostCluster/GhostCluster.wgt
 
 # >> install post
 # << install post
-desktop-file-install --delete-original       \
-  --dir %{buildroot}%{_datadir}/applications             \
-   %{buildroot}%{_datadir}/applications/*.desktop
 
 
 
