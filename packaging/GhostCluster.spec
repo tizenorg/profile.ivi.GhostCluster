@@ -39,7 +39,6 @@ make widget
 rm -rf %{buildroot}
 # >> install pre
 # << install pre
-# %make_install
 
 make install_widget
 wrt-installer -i %{_datadir}/GhostCluster/GhostCluster.wgt
