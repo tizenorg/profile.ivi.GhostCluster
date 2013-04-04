@@ -40,7 +40,7 @@ rm -rf %{buildroot}
 # >> install pre
 # << install pre
 
-make install_widget
+%make_install
 wrt-installer -i %{_datadir}/GhostCluster/GhostCluster.wgt
 
 # >> install post
