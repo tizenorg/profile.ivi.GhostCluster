@@ -7,21 +7,17 @@
 
 Name:       GhostCluster
 Summary:    Automotive Meter Cluster Application
-Version:    0.2013.4.1
+Version:    0.2013.4.4
 Release:    1
 Group:      Applications/System
 License:    Apache 2.0
 URL:        http://www.tizen.org
 Source0:    %{name}-%{version}.tar.gz
-BuildRequires:  desktop-file-utils
-Requires: automotive-message-broker-plugins
-
+Requires:   automotive-message-broker-plugins-websocket
+BuildRequires: zip
 
 %description
 Example guage cluster for tizen ivi
-
-
-
 
 %prep
 %setup -q -n %{name}-%{version}
@@ -34,7 +30,8 @@ Example guage cluster for tizen ivi
 # << build pre
 
 
-make %{?jobs:-j%jobs}
+make widget
+
 
 # >> build post
 # << build post
@@ -42,13 +39,15 @@ make %{?jobs:-j%jobs}
 rm -rf %{buildroot}
 # >> install pre
 # << install pre
+
 %make_install
+
+%post
+
+wrt-installer -i %{_datadir}/GhostCluster/GhostCluster.wgt
 
 # >> install post
 # << install post
-desktop-file-install --delete-original       \
-  --dir %{buildroot}%{_datadir}/applications             \
-   %{buildroot}%{_datadir}/applications/*.desktop
 
 
 
@@ -58,8 +57,8 @@ desktop-file-install --delete-original       \
 %files
 %defattr(-,root,root,-)
 %{_datadir}/GhostCluster
-%{_datadir}/applications/GhostCluster.desktop
-%{_datadir}/pixmaps/GhostCluster.png
+#%{_datadir}/applications/GhostCluster.desktop
+#%{_datadir}/pixmaps/GhostCluster.png
 # >> files
 # << files
 

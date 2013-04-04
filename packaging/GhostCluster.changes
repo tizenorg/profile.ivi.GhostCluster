@@ -1,3 +1,7 @@
+* Thu Apr 04 2013 Kevron Rees <kevron.m.rees@intel.com>
+- fixed TIVI-396. 
+- now runs as web runtime widget
+
 * Mon Mar 18 2013 tripzero <kevron_m_rees@linux.intel.com> submit/2.0alpha/20130129.223232@0e21c58
 - updated version
 
