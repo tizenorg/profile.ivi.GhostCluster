@@ -18,19 +18,19 @@ all:
 widget:
 	zip -r $(PKG_NAME).wgt $(FILES) assets
 
-install_widget:
+install:
 	@echo "installing wgt widget file"
 	mkdir -p $(INSTALL_DIR)/
 	cp $(PKG_NAME).wgt $(INSTALL_DIR)/
 
-install:
-	mkdir -p $(INSTALL_DIR)/
-	cp -a assets $(INSTALL_DIR)/
-	cp $(FILES) $(INSTALL_DIR)/
-	mkdir -p $(DESKTOP_DIR)/
-	cp $(PROJECT).desktop $(DESKTOP_DIR)/
-	mkdir -p $(ICON_DIR)/
-	cp $(PROJECT).png $(ICON_DIR)/$(PROJECT).png
+#install:
+#	mkdir -p $(INSTALL_DIR)/
+#	cp -a assets $(INSTALL_DIR)/
+#	cp $(FILES) $(INSTALL_DIR)/
+#	mkdir -p $(DESKTOP_DIR)/
+#	cp $(PROJECT).desktop $(DESKTOP_DIR)/
+#	mkdir -p $(ICON_DIR)/
+#	cp $(PROJECT).png $(ICON_DIR)/$(PROJECT).png
 
 spec: 
 	specify $<
