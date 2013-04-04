@@ -57,8 +57,8 @@ wrt-installer -i %{_datadir}/GhostCluster/GhostCluster.wgt
 %files
 %defattr(-,root,root,-)
 %{_datadir}/GhostCluster
-%{_datadir}/applications/GhostCluster.desktop
-%{_datadir}/pixmaps/GhostCluster.png
+#%{_datadir}/applications/GhostCluster.desktop
+#%{_datadir}/pixmaps/GhostCluster.png
 # >> files
 # << files
 
