@@ -14,6 +14,7 @@ License:    Apache 2.0
 URL:        http://www.tizen.org
 Source0:    %{name}-%{version}.tar.gz
 Requires:   automotive-message-broker-plugins-websocket
+Requires:   wrt-installer
 BuildRequires: zip
 
 %description
