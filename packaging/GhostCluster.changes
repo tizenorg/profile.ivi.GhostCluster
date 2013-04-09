@@ -1,3 +1,6 @@
+* Tue Apr 09 2013 Kevron Rees <kevron.m.rees@intel.com>
+- fixed icon and package requires TIVI-671
+
 * Thu Apr 04 2013 Kevron Rees <kevron.m.rees@intel.com>
 - fixed TIVI-396. 
 - now runs as web runtime widget
