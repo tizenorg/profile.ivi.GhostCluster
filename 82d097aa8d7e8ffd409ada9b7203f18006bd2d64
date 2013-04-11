@@ -1,0 +1,8 @@
+Change-Id: I82d097aa8d7e8ffd409ada9b7203f18006bd2d64
+Code-Review+2: Kevron Rees <kevron.m.rees@intel.com>
+Verified+1: Kevron Rees <kevron.m.rees@intel.com>
+Submitted-by: Kevron Rees <kevron.m.rees@intel.com>
+Submitted-at: Thu, 11 Apr 2013 15:03:10 -0700
+Reviewed-on: https://review.tizen.org/gerrit/3318
+Project: profile/ivi/GhostCluster
+Branch: refs/heads/2.0
