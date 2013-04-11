@@ -16,6 +16,7 @@ Source0:    %{name}-%{version}.tar.gz
 Requires:   automotive-message-broker-plugins-websocket
 Requires:   wrt-installer
 BuildRequires: zip
+BuildRequires: sys-assert
 
 %description
 Example guage cluster for tizen ivi
