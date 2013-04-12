@@ -13,6 +13,7 @@ Group:      Applications/System
 License:    Apache 2.0
 URL:        http://www.tizen.org
 Source0:    %{name}-%{version}.tar.gz
+Source100:  gc-install
 Requires:   automotive-message-broker-plugins-websocket
 Requires:   wrt-installer
 BuildRequires: zip
@@ -38,10 +39,15 @@ make widget
 # << build post
 %install
 rm -rf %{buildroot}
-# >> install pre
-# << install pre
 
 %make_install
+
+mkdir -p %{buildroot}/etc/rc.d/init.d
+install -m 755 %{SOURCE100}  %{buildroot}/etc/rc.d/init.d/gc-install
+mkdir -p %{buildroot}/etc/rc.d/rc3.d
+ln -s ../init.d/gc-install %{buildroot}/etc/rc.d/rc3.d/S62gc-install
+mkdir -p %{buildroot}/etc/rc.d/rc5.d
+ln -s ../init.d/gc-install %{buildroot}/etc/rc.d/rc5.d/S62gc-install
 
 %post
 
@@ -58,6 +64,10 @@ wrt-installer -if %{_datadir}/GhostCluster/GhostCluster.wgt
 %files
 %defattr(-,root,root,-)
 %{_datadir}/GhostCluster
+%{_sysconfdir}/rc.d/init.d/gc-install
+%{_sysconfdir}/rc.d/rc3.d/S62gc-install
+%{_sysconfdir}/rc.d/rc5.d/S62gc-install
+
 #%{_datadir}/applications/GhostCluster.desktop
 #%{_datadir}/pixmaps/GhostCluster.png
 # >> files

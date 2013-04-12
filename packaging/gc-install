@@ -1,0 +1,8 @@
+#!/bin/sh
+## this is a terrible hack
+
+echo "installing GhostCluster"
+/usr/bin/wrt-installer -i /usr/share/GhostCluster/GhostCluster.wgt
+rm /etc/init.d/gc-install
+rm /etc/rc.d/rc3.d/S62gc-install
+rm /etc/rc.d/rc5.d/S62gc-install
