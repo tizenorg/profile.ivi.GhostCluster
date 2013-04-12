@@ -44,10 +44,8 @@ rm -rf %{buildroot}
 %make_install
 
 %post
-mkdir -p %{buildroot}/opt/share/crash/
-touch %{buildroot}/opt/share/crash/curbs.log
 
-wrt-installer -i %{_datadir}/GhostCluster/GhostCluster.wgt
+wrt-installer -if %{_datadir}/GhostCluster/GhostCluster.wgt
 
 # >> install post
 # << install post
