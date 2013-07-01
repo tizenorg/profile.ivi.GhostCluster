@@ -7,7 +7,7 @@
 
 Name:       GhostCluster
 Summary:    Automotive Meter Cluster Application
-Version:    0.2013.6.26
+Version:    0.2013.6.28
 Release:    1
 Group:      Applications/System
 License:    Apache 2.0
@@ -44,8 +44,9 @@ rm -rf %{buildroot}
 %make_install
 
 %post
-
-wrt-installer -i %{_datadir}/GhostCluster/GhostCluster.wgt
+if [ -f /opt/usr/apps/.preinstallWidgets/preinstallDone ]; then
+    wrt-installer -i /opt/usr/apps/.preinstallWidgets/GhostCluster.wgt;
+fi
 
 # >> install post
 # << install post
@@ -57,9 +58,7 @@ wrt-installer -i %{_datadir}/GhostCluster/GhostCluster.wgt
 
 %files
 %defattr(-,root,root,-)
-%{_datadir}/GhostCluster
-#%{_datadir}/applications/GhostCluster.desktop
-#%{_datadir}/pixmaps/GhostCluster.png
+/opt/usr/apps/.preinstallWidgets/GhostCluster.wgt
 # >> files
 # << files
 
