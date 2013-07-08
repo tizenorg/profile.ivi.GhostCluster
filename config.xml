@@ -4,4 +4,5 @@
     <content src="index.html"/>
     <icon src="GhostCluster.png"/>
     <name>GhostCluster</name>
+    <tizen:privilege name="http://tizen.org/privilege/vehicle"/>
 </widget>
