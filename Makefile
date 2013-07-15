@@ -18,6 +18,11 @@ all:
 widget:
 	zip -r $(PKG_NAME).wgt $(FILES) assets
 
+install_widget:
+	@echo "installing wgt widget file"
+	mkdir -p $(INSTALL_DIR)/
+	cp $(PKG_NAME).wgt $(INSTALL_DIR)/
+
 install:
 	@echo "installing wgt widget file"
 	mkdir -p $(INSTALL_DIR)/
