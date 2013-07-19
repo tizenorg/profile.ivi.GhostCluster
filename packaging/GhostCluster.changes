@@ -1,3 +1,6 @@
+* Fri Jul 19 2013 Kevron Rees <kevron.m.rees@intel.com>
+- added .gbs.conf
+
 * Fri Jun 28 2013 Rusty Lynch <rusty.lynch@intel.com> submit/tizen/20130626.220712@41874bc
 - Add support for wrt-install pre-installed apps
 
