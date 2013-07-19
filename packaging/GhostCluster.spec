@@ -15,7 +15,7 @@ URL:        http://www.tizen.org
 Source0:    %{name}-%{version}.tar.gz
 Requires:   automotive-message-broker-plugins-websocket
 Requires:   wrt-installer
-Requires:   wrt-plugin-ivi
+Requires:   wrt-plugins-ivi
 BuildRequires: zip
 
 %description
