@@ -1,3 +1,16 @@
+* Fri Jul 19 2013 Kevron Rees <kevron.m.rees@intel.com>
+- added .gbs.conf
+
+* Fri Jun 28 2013 Rusty Lynch <rusty.lynch@intel.com> submit/tizen/20130626.220712@41874bc
+- Add support for wrt-install pre-installed apps
+
+* Wed Jun 26 2013 Kevron Rees <kevron.m.rees@intel.com>
+- fixed config.xml
+
+* Tue Jun 18 2013 Kevron Rees <kevron.m.rees@intel.com>
+- submission to tizen 3.0
+- no other changes
+
 * Thu Apr 04 2013 Kevron Rees <kevron.m.rees@intel.com>
 - fixed TIVI-396. 
 - now runs as web runtime widget
