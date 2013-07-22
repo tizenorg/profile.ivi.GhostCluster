@@ -1,6 +1,6 @@
 PROJECT = GhostCluster
 
-INSTALL_DIR = ${DESTDIR}/usr/share/$(PROJECT)
+INSTALL_DIR = ${DESTDIR}/opt/usr/apps/.preinstallWidgets
 DESKTOP_DIR = ${DESTDIR}/usr/share/applications
 ICON_DIR    = ${DESTDIR}/usr/share/pixmaps
 VERSION     = $(shell grep version manifest.json | cut -f4 -d"\"")
@@ -17,6 +17,11 @@ all:
 
 widget:
 	zip -r $(PKG_NAME).wgt $(FILES) assets
+
+install_widget:
+	@echo "installing wgt widget file"
+	mkdir -p $(INSTALL_DIR)/
+	cp $(PKG_NAME).wgt $(INSTALL_DIR)/
 
 install:
 	@echo "installing wgt widget file"
