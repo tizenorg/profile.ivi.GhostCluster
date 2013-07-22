@@ -1,6 +1,7 @@
 * Mon Jul 22 2013 Kevron Rees <kevron.m.rees@intel.com>
 - fixed config.xml
 - readded .gbs.conf
+- resubmitting to tizen
 
 * Fri Jul 19 2013 Kevron Rees <kevron.m.rees@intel.com>
 - added .gbs.conf
