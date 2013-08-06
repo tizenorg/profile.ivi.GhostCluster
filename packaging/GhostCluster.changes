@@ -1,3 +1,6 @@
+* Tue Aug 06 2013 Kevron Rees <kevron.m.rees@intel.com>
+- updated to reflect latest changes in the vehicle plugin
+
 * Mon Jul 22 2013 Kevron Rees <kevron.m.rees@intel.com>
 - fixed config.xml
 - readded .gbs.conf
