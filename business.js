@@ -36,99 +36,6 @@ function calcAverageVelocity(newVel) {
 	$("#avgspeed").text(Math.floor(averageVel));
 }
 
-function connected()
-{
-    /*vehicle.subscribe(["running_status_speedometer", "running_status_engine_speed", "running_status_transmission_gear_status", "running_status_steering_wheel_angle"]);
-    //vehicle.subscribe(["running_status_engine_speed"]);
-    //vehicle.subscribe(["running_status_transmission_gear_status"]);
-    //vehicle.subscribe(["running_status_steering_wheel_angle"]);
-    vehicle.subscribe(["ThrottlePosition"]);
-    vehicle.subscribe(["EngineCoolantTemperature"]);
-    vehicle.subscribe(["MachineGunTurretStatus"]);
-    vehicle.subscribe(["AirIntakeTemperature"]);*/
-
-    vehicle.subscribe(["VehicleSpeed","EngineSpeed","MassAirFlow","AirIntakeTemperature","ThrottlePosition","EngineCoolantTemperature", "TransmissionShiftPosition",
-                       "SteeringWheelAngle","MachineGunTurretStatus"]);
-
-    document.addEventListener("VehicleSpeed",function(data) {
-
-                                  adjvalue = data.value.value;
-                                  curVss = adjvalue;
-                                  var velocityUnits = $('#velocityUnits');
-
-                                  if(velocityUnits.text() === "MPH")
-                                      adjvalue = Math.floor(adjvalue * 0.62137);
-
-                                  $('#velocity').text(adjvalue);
-
-                                  calcAverageVelocity(adjvalue);
-                              },false);
-
-    document.addEventListener("EngineSpeed", function(data) {
-                                  var value = data.value.value;
-                                  if(value > 10000) value =10000;
-                                  var needleDegs = value / 10000 * 180;
-                                  $('#rpms').text(value);
-                                  $('#rpmNeedle').css("-webkit-transform","rotate("+needleDegs+"deg)");
-                              },false);
-
-    document.addEventListener("TransmissionShiftPosition",function(data) {
-                                  value = data.value.value;
-								  if(value == 128)
-									  $('#gear').text('Reverse');
-								  else if(value == 0)
-									  $('#gear').text('Neutral');
-                                  else $('#gear').text(value);
-								  
-                              },false);
-
-    document.addEventListener("SteeringWheelAngle", function(data) {
-                                  value = data.value.value;
-                                  $('#wheel').css("-webkit-transform","rotate("+value+"deg)");
-                                  $('#machinegun').css("-webkit-transform","rotate("+value+"deg)");
-                              },false);
-
-    document.addEventListener("ThrottlePosition", function(data) {
-                                  value = data.value.value;
-                                  var needleDegs = (value / 100 * 180) + 270
-
-                                  $('#throttleNeedle').css("-webkit-transform","rotate("+needleDegs+"deg)");
-
-                              },false);
-
-    document.addEventListener("EngineCoolantTemperature", function(data) {
-                                  value = data.value.value;
-                                  var needleDegs = (value / 180 * 70) + 270
-
-                                  $('#engineCoolantNeedle').css("-webkit-transform","rotate("+needleDegs+"deg)");
-
-                              },false);
-
-    document.addEventListener("MachineGunTurretStatus", function(data) {
-                                  value = data.value.value;
-                                  if(value === "1")
-                                      $('#machineGunTurretPopup').popup('open');
-                                  else $('#machineGunTurretPopup').popup('close');
-
-                              },false);
-
-    document.addEventListener("MassAirFlow", function(data) {
-                                  value = data.value.value;
-                                  var maf = value;
-                                  var vss = curVss;
-                                  var mpg = Math.floor((14.7 * 6.17 * 4.54 * vss * 0.621371) / (3600 * maf / 100));
-
-                                  $('#mpg').text(mpg);
-
-                                  calcAverageMpg(mpg);
-
-                              },false);
-
-
-
-}
-
-
 window.onload = function()
 {
     var addy = "127.0.0.1:23000";
@@ -137,6 +44,22 @@ window.onload = function()
 
     var vehicleSpeed = vehicle.get("VehicleSpeed");
     console.log("Vehicle speed: " + vehicleSpeed.vehicleSpeed);
+
+    try {
+         var begin = new Date(10000000);
+         var end = new Date();
+         vehicle.getHistory("VehicleSpeed", begin, end ,
+                                function(data){ 
+                                     console.log("Vehicle data: " +
+                                     data.toString()); 
+                                }, 
+                                function(err) {
+                                      console.log("getHistory() Error: " + err); 
+                            });
+    }
+    catch(err){
+         console.log("Vehicle GetHistory failed!" + err);
+    }
 
     if(typeof(Storage)!== "undefined")
     {
@@ -147,11 +70,8 @@ window.onload = function()
     $("#address").val(addy);
     $("#address").change(function() { localStorage.address = $("#address").val(); });
 
-    $("#connectButton").click(function() { 
-	vehicle.set("MachineGunTurretStatus", { "machineGunTurretStatus" : true },
-                function(error) { console.log("error " + error);});
-
-     });
+    vehicle.set("MachineGunTurretStatus", { "machineGunTurretStatus" : true },
+                function(error) { console.log("set() error " + error); });
 
     var velocityUnits = $('#velocityUnits');
     velocityUnits.click(function() {

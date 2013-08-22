@@ -1,3 +1,7 @@
+* Fri Aug 16 2013 Kevron Rees <kevron.m.rees@intel.com>
+- Added smack manifest
+- removed connect button
+
 * Tue Aug 06 2013 Kevron Rees <kevron.m.rees@intel.com>
 - updated to reflect latest changes in the vehicle plugin
 
