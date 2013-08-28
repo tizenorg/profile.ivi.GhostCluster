@@ -45,22 +45,6 @@ window.onload = function()
     var vehicleSpeed = vehicle.get("VehicleSpeed");
     console.log("Vehicle speed: " + vehicleSpeed.vehicleSpeed);
 
-    try {
-         var begin = new Date(10000000);
-         var end = new Date();
-         vehicle.getHistory("VehicleSpeed", begin, end ,
-                                function(data){ 
-                                     console.log("Vehicle data: " +
-                                     data.toString()); 
-                                }, 
-                                function(err) {
-                                      console.log("getHistory() Error: " + err); 
-                            });
-    }
-    catch(err){
-         console.log("Vehicle GetHistory failed!" + err);
-    }
-
     if(typeof(Storage)!== "undefined")
     {
         addyTemp = localStorage.address;
