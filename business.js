@@ -38,21 +38,11 @@ function calcAverageVelocity(newVel) {
 
 window.onload = function()
 {
-    var addy = "127.0.0.1:23000";
-
     var vehicle = tizen.vehicle
 
     var vehicleSpeed = vehicle.get("VehicleSpeed");
-    console.log("Vehicle speed: " + vehicleSpeed.vehicleSpeed);
-
-    if(typeof(Storage)!== "undefined")
-    {
-        addyTemp = localStorage.address;
-        if(addyTemp !== undefined) addy = addyTemp;
-    }
-
-    $("#address").val(addy);
-    $("#address").change(function() { localStorage.address = $("#address").val(); });
+    if(vehicleSpeed != undefined)
+        console.log("Vehicle speed: " + vehicleSpeed.vehicleSpeed);
 
     vehicle.set("MachineGunTurretStatus", { "machineGunTurretStatus" : true },
                 function(error) { console.log("set() error " + error); });

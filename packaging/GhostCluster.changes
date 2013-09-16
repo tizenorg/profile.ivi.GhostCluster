@@ -1,3 +1,6 @@
+* Mon Sep 16 2013 Kevron Rees <kevron.m.rees@intel.com>
+- check vehicleSpeed before proceeding so we don't throw
+
 * Fri Aug 16 2013 Kevron Rees <kevron.m.rees@intel.com>
 - Added smack manifest
 - removed connect button
