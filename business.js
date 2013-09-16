@@ -38,12 +38,11 @@ function calcAverageVelocity(newVel) {
 
 window.onload = function()
 {
-    var addy = "127.0.0.1:23000";
-
     var vehicle = tizen.vehicle
 
     var vehicleSpeed = vehicle.get("VehicleSpeed");
-    console.log("Vehicle speed: " + vehicleSpeed.vehicleSpeed);
+    if(vehicleSpeed != undefined)
+        console.log("Vehicle speed: " + vehicleSpeed.vehicleSpeed);
 
     if(typeof(Storage)!== "undefined")
     {
