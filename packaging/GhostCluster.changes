@@ -1,3 +1,6 @@
+* Thu Sep 19 2013 Kevron Rees <kevron.m.rees@intel.com>
+- uninstall the widget on zypper rm
+
 * Mon Sep 16 2013 Kevron Rees <kevron.m.rees@intel.com>
 - check vehicleSpeed before proceeding so we don't throw
 

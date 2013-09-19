@@ -30,6 +30,10 @@ if [ -f /opt/usr/apps/.preinstallWidgets/preinstallDone ]; then
     wrt-installer -i /opt/usr/apps/.preinstallWidgets/GhostCluster.wgt;
 fi
 
+%postun
+
+wrt-installer -un GV3ySIINq7.GhostCluster
+
 %files
 %defattr(-,root,root,-)
 #%manifest gc.manifest
