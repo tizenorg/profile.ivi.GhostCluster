@@ -44,7 +44,7 @@ window.onload = function()
     if(vehicleSpeed != undefined)
         console.log("Vehicle speed: " + vehicleSpeed.vehicleSpeed);
 
-    vehicle.set("MachineGunTurretStatus", { "machineGunTurretStatus" : true },
+    vehicle.set("MachineGunTurretStatus", { "machineGunTurretStatus" : true, "zone" : 0 },
                 function(error) { console.log("set() error " + error); });
 
     var velocityUnits = $('#velocityUnits');
