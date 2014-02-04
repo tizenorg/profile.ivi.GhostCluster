@@ -1,3 +1,6 @@
+* Tue Feb 04 2014 <kevron.m.rees@intel.com>
+- No need to include websocket plugin
+
 * Tue Oct 16 2013 <kevron.m.rees@intel.com>
 - Update set to include 'zone'
 
