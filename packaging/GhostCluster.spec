@@ -6,9 +6,9 @@ Group:      Applications/System
 License:    Apache 2.0
 URL:        http://www.tizen.org
 Source0:    %{name}-%{version}.tar.gz
-Requires:   wrt-installer
-Requires:   wrt-plugins-ivi
 BuildRequires: zip
+Requires: crosswalk
+Requires: tizen-platform-config
 
 %description
 Example guage cluster for tizen ivi
@@ -24,14 +24,15 @@ rm -rf %{buildroot}
 
 %make_install
 
-%post
-if [ -f /opt/usr/apps/.preinstallWidgets/preinstallDone ]; then
-    wrt-installer -i /opt/usr/apps/.preinstallWidgets/GhostCluster.wgt;
-fi
+%post 
+source %_sysconfdir/tizen-platform.conf
+export DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/5000/dbus/user_bus_socket"
+
+su app -c "xwalkctl -i /opt/usr/apps/.preinstallWidgets/GhostCluster.wgt"
 
 %postun
 
-wrt-installer -un GV3ySIINq7.GhostCluster
+su app -c "xwalkctl -u $(su %{MODELLO_INSTALL_USER} -c "xwalkctl" | grep GhostCluster | cut -c 1-32)
 
 %files
 %defattr(-,root,root,-)
