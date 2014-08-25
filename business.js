@@ -40,13 +40,6 @@ window.onload = function()
 {
     var vehicle = tizen.vehicle
 
-    var vehicleSpeed = vehicle.get("VehicleSpeed");
-    if(vehicleSpeed != undefined)
-        console.log("Vehicle speed: " + vehicleSpeed.vehicleSpeed);
-
-    vehicle.set("MachineGunTurretStatus", { "machineGunTurretStatus" : true, "zone" : 0 },
-                function(error) { console.log("set() error " + error); });
-
     var velocityUnits = $('#velocityUnits');
     velocityUnits.click(function() {
                               if(velocityUnits.text() === "MPH")
@@ -56,9 +49,9 @@ window.onload = function()
                               else velocityUnits.text("MPH");
                         });
 
-   vehicle.subscribe("VehicleSpeed",function(data) {
-				  console.log("Vehicle data" + data.vehicleSpeed);
-                                  adjvalue = data.vehicleSpeed;
+   vehicle.vehicleSpeed.subscribe(function(data) {
+				  console.log("Vehicle data" + data.speed);
+                                  adjvalue = data.speed;
                                   curVss = adjvalue;
                                   var velocityUnits = $('#velocityUnits');
 
@@ -70,16 +63,16 @@ window.onload = function()
                                   calcAverageVelocity(adjvalue);
                               });
 
-   vehicle.subscribe("EngineSpeed", function(data) {
-                                  var value = data.engineSpeed;
+   vehicle.engineSpeed.subscribe(function(data) {
+                                  var value = data.speed;
                                   if(value > 10000) value =10000;
                                   var needleDegs = value / 10000 * 180;
                                   $('#rpms').text(value);
                                   $('#rpmNeedle').css("-webkit-transform","rotate("+needleDegs+"deg)");
                               });
 
-    vehicle.subscribe("Transmission",function(data) {
-                                  value = data.gearPosition;
+    vehicle.transmission.subscribe(function(data) {
+                                  value = data.gear;
                                   if(value == 128)
                                       $('#gear').text('Reverse');
                                   else if(value == 0)
@@ -88,34 +81,25 @@ window.onload = function()
 
                               });
 
-    vehicle.subscribe("SteeringWheelAngle", function(data) {
-                                  value = data.steeringWheelAngle;
+    vehicle.steeringWheel.subscribe(function(data) {
+                                  value = data.angle;
                                   $('#wheel').css("-webkit-transform","rotate("+value+"deg)");
                                   $('#machinegun').css("-webkit-transform","rotate("+value+"deg)");
                               });
 
-    vehicle.subscribe("ThrottlePosition", function(data) {
-                                  value = data.throttlePosition;
+    vehicle.throttlePosition.subscribe(function(data) {
+                                  value = data.value;
                                   var needleDegs = (value / 100 * 180) + 270
 
                                   $('#throttleNeedle').css("-webkit-transform","rotate("+needleDegs+"deg)");
 
                               });
 
-    vehicle.subscribe("EngineCoolantTemperature", function(data) {
-                                  value = data.engineCoolantTemperature;
+    vehicle.engineCoolant.subscribe(function(data) {
+                                  value = data.temperature;
                                   var needleDegs = (value / 180 * 70) + 270
 
                                   $('#engineCoolantNeedle').css("-webkit-transform","rotate("+needleDegs+"deg)");
 
                               });
-
-    vehicle.subscribe("MachineGunTurretStatus", function(data) {
-                                  value = data.machineGunTurretStatus;
-                                  if(value === "1")
-                                      $('#machineGunTurretPopup').popup('open');
-                                  else $('#machineGunTurretPopup').popup('close');
-
-                              });
-
 }

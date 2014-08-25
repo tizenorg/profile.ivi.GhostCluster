@@ -1,6 +1,6 @@
 Name:       GhostCluster
 Summary:    Automotive Meter Cluster Application
-Version:    0.2013.10.16
+Version:    0.2014.08.25
 Release:    1
 Group:      Applications/System
 License:    Apache 2.0
@@ -31,8 +31,8 @@ export DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/5000/dbus/user_bus_socket"
 su app -c "xwalkctl -i /opt/usr/apps/.preinstallWidgets/GhostCluster.wgt"
 
 %postun
-
-su app -c "xwalkctl -u $(su %{MODELLO_INSTALL_USER} -c "xwalkctl" | grep GhostCluster | cut -c 1-32)
+export DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/5000/dbus/user_bus_socket"
+su app -c "xwalkctl -u $(su app -c "xwalkctl list | grep GhostCluster | cut -c 1-32")"
 
 %files
 %defattr(-,root,root,-)
